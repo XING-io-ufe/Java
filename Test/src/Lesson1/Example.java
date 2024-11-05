@@ -1,5 +1,6 @@
+package Lesson1;
 import java.util.Scanner;
-public class One {
+public class Example {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int n;
@@ -11,5 +12,5 @@ public class One {
             }
         }
         System.out.println(sum);
-}
+    }
 }
