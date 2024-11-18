@@ -6,31 +6,31 @@ class Library {
     private int bookCount;
 
     public Library(int capacity) {
-        books = new Book[capacity]; // Номын массив
-        bookCount = 0; // Номын тоо
+        books = new Book[capacity];
+        bookCount = 0;
     }
 
     public void addBook(Book book) {
         if (bookCount < books.length) {
             books[bookCount] = book;
             bookCount++;
-            System.out.println("Book added: " + book.getTitle());
+            System.out.println("ном нэмэх: " + book.getTitle());
         } else {
-            System.out.println("Library is full! Cannot add more books.");
+            System.out.println("ном дүүрсэн багтаамж.");
         }
     }
 
     public void removeBook(Book book) {
         for (int i = 0; i < bookCount; i++) {
             if (books[i].equals(book)) {
-                books[i] = books[bookCount - 1]; // Сүүлийн номыг энэ байрлалд шилжүүлнэ
-                books[bookCount - 1] = null; // Сүүлийн номыг null болгоно
+                books[i] = books[bookCount - 1];
+                books[bookCount - 1] = null;
                 bookCount--;
-                System.out.println("Book removed: " + book.getTitle());
+                System.out.println("арилгасан ном: " + book.getTitle());
                 return;
             }
         }
-        System.out.println("Book not found: " + book.getTitle());
+        System.out.println("ном олдсонгүй: " + book.getTitle());
     }
 
     public void displayBooks() {
@@ -44,7 +44,7 @@ class Library {
         }
     }
     public static void main(String[] args) {
-        Library library = new Library(10); // Номын сангийн багтаамжийг 10 номоор тохируулна
+        Library library = new Library(10); 
         Scanner scanner = new Scanner(System.in);
 
         // Зохиогчийн мэдээлэл оруулах
