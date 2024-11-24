@@ -15,16 +15,9 @@ public class Employee {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
 
     public void work() {
-        System.out.println(name + " is working.");
+        System.out.println(name + " ажилтай байна.");
     }
 
     public double getSalary() {

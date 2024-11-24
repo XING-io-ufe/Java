@@ -5,6 +5,6 @@ public class Hrmanager extends Employee{
         super(name, salary);
     }
     public void addEmployee(Employee employee) {
-        System.out.println("Ажилтан нэмэгдлээ: " + employee.getName());
+        System.out.println("Шинэ ажилтан нэмэгдлээ: " + employee.getName());
     }
 }
