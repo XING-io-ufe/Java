@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 public class Calculator {
 
     private JFrame frame;
@@ -26,9 +25,12 @@ public class Calculator {
     private JButton Equal;
     private JTextField textField;
 
+    private String operator;
+    private int firstOperand;
+    private boolean operatorPressed;
 
     public Calculator() {
-        frame = new JFrame("sum example");
+        frame = new JFrame("Calculator");
         frame.setSize(400, 500);
         frame.setLayout(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,40 +53,93 @@ public class Calculator {
         Division = new JButton("/");
         Equal = new JButton("=");
 
-
         textField.setBounds(10, 10, 350, 40);
-        Zero.setBounds(30,60, 75, 75);
-        One.setBounds(115,60, 75, 75);
-        Two.setBounds(200,60, 75, 75);
-        Three.setBounds(285,60, 75, 75);
-        Four.setBounds(30,145, 75, 75);
-        Five.setBounds(115,145, 75, 75);
-        Six.setBounds(200,145, 75, 75);
-        Seven.setBounds(285,145, 75, 75);
-        Eight.setBounds(30,230, 75, 75);
-        Nine.setBounds(115,230, 75, 75);
-        Dot.setBounds(200,230, 75, 75);
-        Addition.setBounds(285,230, 75, 75);
-        Subtraction.setBounds(30,315, 75, 75);
-        Multiplication.setBounds(115,315, 75, 75);
-        Division.setBounds(200,315, 75, 75);
-        Equal.setBounds(285,315, 75, 75);
+        Seven.setBounds(30, 60, 75, 75);
+        Eight.setBounds(115, 60, 75, 75);
+        Nine.setBounds(200, 60, 75, 75);
+        Addition.setBounds(285, 60, 75, 75);
+        Four.setBounds(30, 145, 75, 75);
+        Five.setBounds(115, 145, 75, 75);
+        Six.setBounds(200, 145, 75, 75);
+        Subtraction.setBounds(285, 145, 75, 75);
+        One.setBounds(30, 230, 75, 75);
+        Two.setBounds(115, 230, 75, 75);
+        Three.setBounds(200, 230, 75, 75);
+        Multiplication.setBounds(285, 230, 75, 75);
+        Zero.setBounds(30, 315, 75, 75);
+        Dot.setBounds(115, 315, 75, 75);
+        Division.setBounds(200, 315, 75, 75);
+        Equal.setBounds(285, 315, 75, 75);
 
 
 
-        Addition.addActionListener(new ActionListener() {
+        ActionListener numberListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int a = Integer.parseInt(Zero.getText());
-                int b = Integer.parseInt(One.getText());
-
-                int total = a + b;
-
-                Equal.setText(String.valueOf(total));
+                JButton source = (JButton) e.getSource();
+                if (operatorPressed) {
+                    textField.setText("");
+                    operatorPressed = false;
+                }
+                textField.setText(textField.getText() + source.getText());
             }
+        };
 
+        Zero.addActionListener(numberListener);
+        One.addActionListener(numberListener);
+        Two.addActionListener(numberListener);
+        Three.addActionListener(numberListener);
+        Four.addActionListener(numberListener);
+        Five.addActionListener(numberListener);
+        Six.addActionListener(numberListener);
+        Seven.addActionListener(numberListener);
+        Eight.addActionListener(numberListener);
+        Nine.addActionListener(numberListener);
+        Dot.addActionListener(numberListener);
+
+
+        ActionListener operatorListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JButton source = (JButton) e.getSource();
+                firstOperand = Integer.parseInt(textField.getText());
+                operator = source.getText();
+                operatorPressed = true;
+            }
+        };
+
+        Addition.addActionListener(operatorListener);
+        Subtraction.addActionListener(operatorListener);
+        Multiplication.addActionListener(operatorListener);
+        Division.addActionListener(operatorListener);
+
+
+
+        Equal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int secondOperand = Integer.parseInt(textField.getText());
+                int result;
+
+                switch (operator) {
+                    case "+":
+                        result = firstOperand + secondOperand;
+                        break;
+                    case "-":
+                        result = firstOperand - secondOperand;
+                        break;
+                    case "*":
+                        result = firstOperand * secondOperand;
+                        break;
+                    case "/":
+                        result = firstOperand / secondOperand;
+                        break;
+                    default:
+                        result = 0;
+                }
+                textField.setText(String.valueOf(result));
+            }
         });
-
 
         frame.add(textField);
         frame.add(Zero);
@@ -104,10 +159,7 @@ public class Calculator {
         frame.add(Division);
         frame.add(Equal);
         frame.setVisible(true);
-
-
     }
-
 
     public static void main(String[] args) {
         new Calculator();
