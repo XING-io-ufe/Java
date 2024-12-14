@@ -23,7 +23,8 @@ public class StudentInfoApp {
         frame.add(studentInfoPanel, BorderLayout.NORTH);
 
         // Left Panel: Selected Subjects
-        JPanel subjectsPanel = new JPanel(new BoxLayout(new JPanel(), BoxLayout.Y_AXIS));
+        JPanel subjectsPanel = new JPanel();
+        subjectsPanel.setLayout(new BoxLayout(subjectsPanel, BoxLayout.Y_AXIS)); // Correctly set the layout
         subjectsPanel.setBorder(BorderFactory.createTitledBorder("Selected Subjects"));
         subjectsPanel.add(new JCheckBox("Math"));
         subjectsPanel.add(new JCheckBox("Physics"));

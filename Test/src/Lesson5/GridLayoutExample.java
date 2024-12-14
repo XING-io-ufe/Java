@@ -16,7 +16,7 @@ public class GridLayoutExample {
         JButton jb5 = new JButton("Button 5");
 
         JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(3, 2));
+        panel.setLayout(new GridLayout(2, 2));
         panel.add(jb1);
         panel.add(jb2);
         panel.add(jb3);
