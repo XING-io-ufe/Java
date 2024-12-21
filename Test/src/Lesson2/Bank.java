@@ -1,7 +1,7 @@
 package Lesson2;
 import java.util.Scanner;
 
-public class Bank {
+public class  Bank {
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
         System.out.println("үйлчилгээгээ сонгоно уу: \n 1. Дансны мэдээлэл авах\n 2. орлого хийх \n 3. зарлага хийх \n 4. үлдэгдэл шалгах ");

@@ -16,7 +16,7 @@ public class Register {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
-            String insertQuery = "INSERT INTO users (username, password, first_name, last_name, email) VALUES (?, ?, ?, ?, ?)";
+            String insertQuery = "INSERT INTO users (username, password,  first_name, last_name, email) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);

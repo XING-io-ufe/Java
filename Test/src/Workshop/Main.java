@@ -146,6 +146,7 @@ public class Main {
                 // Файл хадгалах диалог үүсгэх
                 JFileChooser fileChooser = new JFileChooser();
                 fileChooser.setDialogTitle("Файл хадгалах");
+
                 int userSelection = fileChooser.showSaveDialog(frame);
 
                 if (userSelection == JFileChooser.APPROVE_OPTION) {
